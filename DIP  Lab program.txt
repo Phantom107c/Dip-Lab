@@ -1,0 +1,97 @@
+
+
+a=imread('file path\filename.jpg');
+imshow(a);
+
+
+close all;
+clear all;
+
+for k = 1:5
+            
+        close all;
+        
+
+        im = strcat('C:\Users\Divyashreenivas\OneDrive\Documents\Divya Chilli Disease photos\cp0\',num2str(k),'.jpg');
+        a= imread(im);
+
+im = strcat('C:\Users\Divyashreenivas\OneDrive\Documents\outputs\',num2str(k),'.jpg');
+        imwrite(a, im);
+end
+
+
+a=imread('C:\Users\Divyashreenivas\OneDrive\Desktop\Ammu mrg\family photo.jpg');
+imshow(a);
+
+b=rgb2gray(a);
+c=im2bw(b);
+
+figure,
+subplot(2,2,1); imshow(a); title('RGBimage');
+subplot(2,2,2); imshow(b); title('grayimage');
+subplot(2,2,3); imshow(c); title('binaryimage');
+
+
+
+a=imread('file path\filename.jpg');
+imshow(a);
+b=imhist(a);
+figure,
+imshow(b);
+
+
+close all;
+clear all;
+original=imread("C:\Users\Divyashreenivas\OneDrive\Desktop\Ammu mrg\family photo.jpg");
+
+    redchannel = original(:,:, 1);
+        greenchannel = original(:,:, 2);
+        bluechannel = original(:,:, 3);
+        figure,
+        subplot(2,2,1), imshow(original); title('image');
+        subplot(2,2,2), imshow(greenchannel); title('rimage');
+        subplot(2,2,3), imshow(greenchannel); title('gimage');
+        subplot(2,2,4), imshow(greenchannel); title('bimage');
+
+
+
+
+img = imread('C:\Users\Divyashreenivas\OneDrive\Documents\Divya Chilli Disease photos\cp0\1.jpg');
+
+figure;
+imshow(img);
+title('Original Image');
+
+[rows, cols, channels] = size(img);
+
+
+mid_row = floor(rows / 2);
+mid_col = floor(cols / 2);
+
+quad1 = img(1:mid_row, 1:mid_col, :);
+
+
+quad2 = img(1:mid_row, mid_col+1:end, :);
+
+quad3 = img(mid_row+1:end, 1:mid_col, :);
+
+quad4 = img(mid_row+1:end, mid_col+1:end, :);
+
+
+figure;
+
+subplot(2, 2, 1);
+imshow(quad1);
+title('Top-Left Quadrant (Up)');
+
+subplot(2, 2, 2);
+imshow(quad2);
+title('Top-Right Quadrant (Right)');
+
+subplot(2, 2, 3);
+imshow(quad3);
+title('Bottom-Left Quadrant (Left)');
+
+subplot(2, 2, 4);
+imshow(quad4);
+title('Bottom-Right Quadrant (Down)');
